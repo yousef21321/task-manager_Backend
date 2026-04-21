@@ -40,15 +40,22 @@ class TaskController extends Controller
         ]);
     }
 
-
-    public function update(Request $request, Task $task)
-    {
-        //
+// تحديث TASK
+public function update(TaskRequest $request, Task $task)    {
+        $task->update($request->validated());
+        return response()->json([
+            'status' => 'success 200',
+            'data' => $task
+        ]);
     }
 
-
+// حذف TASK
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+        return response()->json([
+            'status' => 'success 204',
+            'data' =>   null
+        ]);
     }
 }
