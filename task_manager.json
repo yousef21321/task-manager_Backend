@@ -1,0 +1,147 @@
+{
+    "info": {
+        "name": "Task Manager API (Laravel Assessment)",
+        "description": "Postman collection to test the Task Manager API built for the junior developer assessment.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "1. Get All Tasks",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/tasks",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "tasks"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "2. Create Task",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"title\": \"Finish Vue 3 Frontend\",\n    \"description\": \"Build the task list and form using Vue 3 and Vite.\",\n    \"status\": \"pending\",\n    \"due_date\": \"2026-04-25\"\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/tasks",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "tasks"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "3. Get Single Task",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/tasks/1",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "tasks",
+                        "1"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "4. Update Task",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"title\": \"Finish Vue 3 Frontend (Updated)\",\n    \"description\": \"Build the task list, form, and add loading states.\",\n    \"status\": \"in_progress\",\n    \"due_date\": \"2026-04-26\"\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/tasks/1",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "tasks",
+                        "1"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "5. Delete Task",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/tasks/1",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "tasks",
+                        "1"
+                    ]
+                }
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://127.0.0.1:8000/api",
+            "type": "string"
+        }
+    ]
+}
