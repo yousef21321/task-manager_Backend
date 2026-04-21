@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
-use Illuminate\Http\Request;
+use App\Http\Requests\TaskRequest;
+
 
 class TaskController extends Controller
 {
@@ -18,10 +19,16 @@ class TaskController extends Controller
             'data' => $tasks
         ]);}
 
-
-    public function store(Request $request)
+// انشاء TASK جديد
+    public function store(TaskRequest $request)
     {
-        //
+        $task = Task::create($request->validated());
+
+        return response()->json([
+            'status' => 'success 201',
+            'data' => $task
+        ], 201);
+
     }
 
 
