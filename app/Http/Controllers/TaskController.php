@@ -7,41 +7,36 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+   // عرض كل ال TASKS
     public function index()
     {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+        $tasks = Task::latest()->get();
+
+        return response()->json([
+            'status' => 'success 200',
+            'data' => $tasks
+        ]);}
+
+
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(Task $task)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, Task $task)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(Task $task)
     {
         //
