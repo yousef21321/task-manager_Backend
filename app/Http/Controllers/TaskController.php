@@ -31,10 +31,13 @@ class TaskController extends Controller
 
     }
 
-
+// عرض TASK     باسم التاسك
     public function show(Task $task)
     {
-        //
+        return response()->json([
+            'status' => 'success 200',
+            'data' => $task
+        ]);
     }
 
 
